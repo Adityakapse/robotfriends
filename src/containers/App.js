@@ -4,6 +4,7 @@ import Cardmap from "../components/Cardmap";
 import SearchInput from "../components/SearchInput";
 import "./App.css";
 import Scroll from "../components/Scroll";
+import ErrorBoundry from "../components/ErrorBoundry";
 
 class App extends Component {
   constructor() {
@@ -40,7 +41,9 @@ class App extends Component {
         <h1 className="f1">Robots</h1>
         <SearchInput searchChange={this.onSearchChange} />
         <Scroll>
-          <Cardmap robots={filteredRobots} />
+          <ErrorBoundry>
+            <Cardmap robots={filteredRobots} />
+          </ErrorBoundry>
         </Scroll>
       </div>
     );
